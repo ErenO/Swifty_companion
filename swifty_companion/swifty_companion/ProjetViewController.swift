@@ -22,6 +22,21 @@ class ProjetViewController: UIViewController, UITableViewDataSource, UITabBarDel
     }
 
     
+    @IBAction func segmentedC(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            tab = SearchViewController.projet
+            marks = SearchViewController.marks
+            self.tableView.reloadData()
+        case 1:
+            tab = SearchViewController.piscine
+            marks = SearchViewController.piMarks
+            self.tableView.reloadData()
+        default:
+            break
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tab.count
     }

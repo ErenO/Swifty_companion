@@ -41,6 +41,21 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
+    @IBAction func segmentedC(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            tab = SearchViewController.projet
+            marks = SearchViewController.marks
+            self.tableView.reloadData()
+        case 1:
+            tab = SearchViewController.piscine
+            marks = SearchViewController.piMarks
+            self.tableView.reloadData()
+        default:
+            break
+        }
+    }
+    
     func setFront() {
         DispatchQueue.main.async {
             self.loginLbl.text = SearchViewController.login

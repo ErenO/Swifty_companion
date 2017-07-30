@@ -76,12 +76,22 @@ class SearchViewController: UIViewController {
         return true
     }
     
+    @IBAction func getTokenBtn(_ sender: Any) {
+        let session = UserDefaults.standard
+        if session.string(forKey: "access_token") != nil {
+//            self.reqVerif = false
+//            getUserId()
+            authenticateUser()
+        }
+    }
     
     @IBAction func searchBtn(_ sender: Any) {
-        if self.reqVerif == true {
+        let session = UserDefaults.standard
+        if self.reqVerif == true, session.string(forKey: "access_token") != nil{
             self.reqVerif = false
             getUserId()
         }
+        //mettre un bouton getToken
     }
     
     override func viewWillAppear(_ animated: Bool) {

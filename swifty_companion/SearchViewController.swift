@@ -78,9 +78,7 @@ class SearchViewController: UIViewController {
     
     @IBAction func getTokenBtn(_ sender: Any) {
         let session = UserDefaults.standard
-        if session.string(forKey: "access_token") != nil {
-//            self.reqVerif = false
-//            getUserId()
+        if session.string(forKey: "access_token") == nil {
             authenticateUser()
         }
     }

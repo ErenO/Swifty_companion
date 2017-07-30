@@ -50,7 +50,7 @@ class SearchViewController: UIViewController {
         SearchViewController.piscine42["unity"] = [:]
         SearchViewController.piscine42["ruby"] = [:]
         SearchViewController.piscine42["piscine-c"] = [:]
-         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
+//         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
         // Do any additional setup after loading the view.
     }
 
@@ -94,7 +94,7 @@ class SearchViewController: UIViewController {
         SearchViewController.marks = []
         SearchViewController.skills = [:]
         SearchViewController.image = ""
-        print("marks \(SearchViewController.marks)")
+//        print("marks \(SearchViewController.marks)")
         SearchViewController.piscine42["ocaml"] = [:]
         SearchViewController.piscine42["django"] = [:]
         SearchViewController.piscine42["php"] = [:]
@@ -108,7 +108,7 @@ class SearchViewController: UIViewController {
 
     func printContent() {
         if SearchViewController.level != "", SearchViewController.name != "" {
-            print(SearchViewController.level)
+//            print(SearchViewController.level)
             print(SearchViewController.name)
             print(SearchViewController.image)
             print(SearchViewController.login)
@@ -130,7 +130,7 @@ class SearchViewController: UIViewController {
     }
     
     func getAccessToken(code: String) {
-        print("TOKKKKEBBB")
+//        print("TOKKKKEBBB")
         let session = UserDefaults.standard
         let redirectUri = "swifty://swifty"
         
@@ -184,7 +184,7 @@ class SearchViewController: UIViewController {
                     
                     if let dic : [NSDictionary] = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? [NSDictionary] {
                            DispatchQueue.main.async {
-                            print(dic)
+//                            print(dic)
                             let json = JSON(dic)
                             if json[0]["id"].exists() {
                                 session.set(dic[0].value(forKey: "id"), forKey: "user_id")
@@ -215,7 +215,7 @@ class SearchViewController: UIViewController {
     func getProjectUserInfo() {
         let session = UserDefaults.standard
         let id = session.string(forKey: "user_id")!
-        print("id \(id)")
+//        print("id \(id)")
         let url = URL(string: "https://api.intra.42.fr/v2/users/\(id)")
         let request = NSMutableURLRequest(url: url!)
         request.httpMethod = "GET"
@@ -233,8 +233,6 @@ class SearchViewController: UIViewController {
                         DispatchQueue.main.async {
                             let json = JSON(dic["projects_users"]!)
                             let jdic = JSON(dic)
-                            print("jdic")
-                            print(jdic)
                             var tab: [String] = []
                             for (_,subJson):(String, JSON) in json {
                                 if subJson["status"] == "finished" {
@@ -277,9 +275,6 @@ class SearchViewController: UIViewController {
                                     }
                                 }
                             }
-                            print("42piscine")
-                            print(SearchViewController.piscine42["piscine-c"]?.count ?? 0)
-                            print(SearchViewController.piscine42)
                             if (jdic["phone"] != JSON.null) {
                                 SearchViewController.numero = String(describing: dic["phone"] ?? "pas de numero")
                             } else {
@@ -335,10 +330,6 @@ class SearchViewController: UIViewController {
                     if let dic : [NSDictionary] = try JSONSerialization.jsonObject(with: d, options: .mutableContainers) as? [NSDictionary] {
                            DispatchQueue.main.async {
                             let jdic = JSON(dic)
-                            print("ljdic \(jdic["level"])")
-                            print(jdic[0])
-                            print(">>>")
-                            print(jdic)
                             if jdic[0]["level"] != JSON.null {
                                 SearchViewController.level = String(describing: jdic[0]["level"])
                             }

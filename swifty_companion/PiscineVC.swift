@@ -157,7 +157,7 @@ class PiscineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, E
         language[section].expanded = !language[section].expanded
         tableView.beginUpdates()
         let keys = language[section].langue
-        print("count \(SearchViewController.piscine42[keys]!.count)")
+//        print("count \(SearchViewController.piscine42[keys]!.count)")
         for i in 0..<SearchViewController.piscine42[keys]!.count {
             tableView.reloadRows(at: [IndexPath(row: i, section: section)], with: .automatic)
         }
@@ -166,7 +166,7 @@ class PiscineVC: UIViewController, UITableViewDelegate, UITableViewDataSource, E
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = ExpandedTableView()
-        print("section \(section)")
+//        print("section \(section)")
         if section < 8 {
             let keys = language[section].langue
             let nb = Array(SearchViewController.piscine42[keys]!.keys).isEmpty

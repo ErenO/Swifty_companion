@@ -95,10 +95,10 @@ class LoginViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var view2: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        printContent()
+//        printContent()
         setFront()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
-        self.view2.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
+//        self.view2.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
     }
 
     @IBAction func projectBtn(_ sender: Any) {

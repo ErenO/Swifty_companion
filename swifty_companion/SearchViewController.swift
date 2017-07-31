@@ -53,6 +53,10 @@ class SearchViewController: UIViewController {
 //         self.view.backgroundColor = UIColor(patternImage: UIImage(named:"polygon")!)
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.errorLbl.text = ""
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,6 +92,10 @@ class SearchViewController: UIViewController {
         if self.reqVerif == true, session.string(forKey: "access_token") != nil{
             self.reqVerif = false
             getUserId()
+        } else {
+            errorLbl.text = "no token"
+            errorLbl.textColor = UIColor.red
+            errorLbl.isHidden = false
         }
         //mettre un bouton getToken
     }
